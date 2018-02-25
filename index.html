@@ -9,18 +9,50 @@
         to see my dynamically bound title!
     </span>
 </div>
+<div id="app-3">
+    <span v-if="seen">Now you see me!</span>
+</div>
+<div id="app-4">
+    <h3>{{ message }}</h3>
+    <ul>
+        <li v-for="todo in todos">
+            {{ todo.text }} 
+        </li>
+    </ul>
+</div>
 <script>
-    var app = new Vue({
-        el: '#app',
-        data: {
-            message: 'Hello Vue!',
-            msg: 'test'
-        }
-    })
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello Vue!',
+        msg: 'test'
+    }
+})
+
 var app2 = new Vue({
     el: '#app-2',
     data: {
         message: 'You loaded this page on ' + new Date().toLocaleString()
     }
 })
+
+var app3 = new Vue({
+    el: '#app-3',
+    data: {
+        seen: true
+    }
+})
+
+var app4 = new Vue ({
+    el: '#app-4',
+    data: {
+        message: "Welcome to Vue!",
+        todos: [
+            { text: 'Vue Line 1' },
+            { text: 'Vue Line 2' },
+            { text: 'Vue Line 3' }
+        ]
+    }
+})
+
 </script>
