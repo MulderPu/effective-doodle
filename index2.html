@@ -1,0 +1,24 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+<div id="app">
+    <p>{{ obj.foo }}</p>
+    <button @click="obj.foo = 'baz'">Change</button>
+</div>
+<script>
+var obj = {
+    foo: 'bar'
+}
+
+// prevent data properties changes.
+// cancel tracking changes
+Object.freeze(obj)
+
+new Vue ({
+    el: '#app',
+    data () {
+        return {
+            obj
+        }
+    }
+})
+    
+</script>
