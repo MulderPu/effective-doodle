@@ -3,6 +3,13 @@
     <p>{{ obj.foo }}</p>
     <button @click="obj.foo = 'baz'">Change</button>
 </div>
+<div id="example">
+    {{ data }}
+    <br>
+    <span>{{ msg }}</span>
+    <br>
+    <span v-once>This will never changes. {{ msg }}</span>
+</div>
 <script>
 var obj = {
     foo: 'bar'
@@ -10,7 +17,7 @@ var obj = {
 
 // prevent data properties changes.
 // cancel tracking changes
-Object.freeze(obj)
+// Object.freeze(obj)
 
 new Vue ({
     el: '#app',
@@ -19,6 +26,25 @@ new Vue ({
             obj
         }
     }
+})
+
+var data = {a: 1}
+var vm = new Vue({
+    el: '#example',
+    data: {
+        data,
+        msg: "hello"
+    }
+})
+
+vm.msg = "world"
+
+vm.$data === data
+vm.$el === document.getElementById('example')
+
+vm.$watch('a', function (newValue, oldValue) {
+    // callback
+    console.log(oldValue)
 })
     
 </script>
