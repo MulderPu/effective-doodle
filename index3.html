@@ -1,0 +1,43 @@
+<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+<div id="example">
+  <p>Original message: "{{ message }}"</p>
+  <p>Computed reversed message: "{{ reversedMessage }}"</p>
+</div>
+
+
+<div id="app" v-bind:class="[activeClass, errorClass]">test 1</div>
+<div id="app2" v-bind:style="styleObject">test 2</div>
+<script>
+    var example = new Vue({
+        el: '#example',
+        data: {
+            message: 'Hello'
+        },
+        computed: {
+            // a computed getter
+            reversedMessage: function () {
+                // `this` points to the vm instance
+                return this.message.split('').reverse().join('')
+            }
+        }
+    })
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            activeClass: 'active',
+            errorClass: 'text-danger'
+        }
+    })
+
+    var app2 = new Vue({
+        el: '#app2',
+        data: {
+            styleObject: {
+                color: 'red',
+                fontSize: '53px'
+            }
+        }
+    })
+</script>

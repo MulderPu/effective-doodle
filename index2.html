@@ -10,6 +10,11 @@
     <br>
     <span v-once>This will never changes. {{ msg }}</span>
 </div>
+
+<div id="app1">
+    <p>Using Mustaches: <span >{{ rawHTML }}</span></p>
+    <p>Using v-html directive: <span style="color:red;" v-html="rawHTML"></span></p>
+</div>
 <script>
 var obj = {
     foo: 'bar'
@@ -45,6 +50,13 @@ vm.$el === document.getElementById('example')
 vm.$watch('a', function (newValue, oldValue) {
     // callback
     console.log(oldValue)
+})
+
+var app1 = new Vue({
+    el: '#app1',
+    data: {
+        rawHTML: 'Should be red.'
+    }
 })
     
 </script>
