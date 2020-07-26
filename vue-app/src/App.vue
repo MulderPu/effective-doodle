@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-   <h1>Hello Uganda!</h1>
+    <h1 class="headline">Employees</h1>
+
+    <hr />
+    <router-view></router-view>
   </div>
 </template>
 
-<style>
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-left: 5%;
-  margin-right: 5%;
+<script>
+export default {
+  name: "App",
+};
+</script>
+
+<style scoped>
+.headline {
+  color: red;
 }
 </style>
