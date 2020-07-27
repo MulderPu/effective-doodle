@@ -1,11 +1,9 @@
 <template>
   <div id="employee-table">
-    <img id="home" height="75px" width="75px" />
-
-    <!-- <img src="../assets/images/logo.png" /> -->
-    <!-- <img :src="image" /> -->
-    <!-- <img :src="require('../assets/images/logo.png')" /> -->
+    <h1 class="headline">Employees</h1>
+    <img :src="image" />
     <div class="settingIcon"></div>
+    <div id="logo"></div>
     <table class="table">
       <thead>
         <tr>
@@ -43,15 +41,16 @@
 </template>
 
 <script>
-import logoIcon from "./../assets/images/logo.png";
+import logo from "../assets/images/logo.png";
 
 export default {
   name: "employee-table",
+  data: function() {
+    return {
+      image: logo,
+    };
+  },
 };
-
-var logoImg = document.getElementById("home");
-console.log(logoImg);
-// logoImg.src = logoIcon;
 </script>
 
 <style scoped>
@@ -60,6 +59,5 @@ console.log(logoImg);
   background-repeat: no-repeat;
   height: 200px;
   width: 250px;
-  /* display: inline-block; */
 }
 </style>
